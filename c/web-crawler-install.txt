@@ -1,0 +1,21 @@
+# I have tested these instructions on ubuntu 10.04 and 10.10
+
+apt-get update
+apt-get install git-core tofrodos g++ libboost-dev libcurl3-dev
+
+git clone --recursive git://github.com/esromneb/sjsu-cs267.git
+# the git command makes a new directory
+
+
+echo "/usr/local/lib" >> /etc/ld.so.conf
+ldconfig
+
+cd sjsu-cs267/c/hydra-web-crawler/
+cp hiredis.cpp/* hiredis/
+make deps
+make
+make startdb > /dev/null &
+mkdir dirout
+echo "sadd urls http://www.reddit.com" | ./redis-cli
+./hwc
+
