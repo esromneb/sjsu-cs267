@@ -1,0 +1,86 @@
+# from ubuntu linux:
+# my version of ubuntu linux, as provided by 'cat /etc/lsb-release' : 
+"Ubuntu 10.04.3 LTS"
+
+# Instructions:
+
+apt-get install subversion tofrodos unzip
+apt-get install g++
+apt-get install libboost-dev
+apt-get install libcurl3-dev
+apt-get install xfsprogs xfsdump
+apt-get install git-core
+
+
+echo "/usr/local/lib" >> /etc/ld.so.conf
+ldconfig
+
+cd
+mkdir downloads
+cd downloads
+wget http://curlpp.googlecode.com/files/curlpp-0.7.3.tar.gz
+tar -zxvf curlpp*
+cd curlpp*
+./configure
+make
+make install
+
+
+
+
+cd downloads
+wget http://curl.haxx.se/download/curl-7.21.7.tar.gz
+tar -zxvf curl-7.21.7.tar.gz
+cd curl*
+./configure
+make
+make install
+
+
+
+cd downloads
+wget http://downloads.sourceforge.net/project/pcre/pcre/8.12/pcre-8.12.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fpcre%2Ffiles%2F&ts=1315102696&use_mirror=cdnetworks-us-2
+mv pcre-8.12.zip* pcre-8.12.zip
+unzip pcre*
+cd pcre*
+./configure
+make
+make install
+
+
+cd hydra-web-crawler
+mkdir tests
+cd tests/
+wget http://cu.danfis.cz/files/cu-0.12.tar.gz
+tar xzf cu-0.12.tar.gz
+make -C cu-0.12
+ls
+mv cu-0.12 cu
+mkdir regressions
+
+
+cd hydra-web-crawler
+wget http://redis.googlecode.com/files/redis-2.2.12.tar.gz
+tar xzf redis-2.2.12.tar.gz
+cd redis-2.2.12
+make
+nano /etc/sysctl.conf (add the following line to the bottom of file:)
+  vm.overcommit_memory = 1
+
+
+cd hydra-web-crawler
+mkdir hiredis
+cd hiredis
+git init
+git pull git://github.com/antirez/hiredis.git
+make
+make install
+
+
+
+
+# Acceptable simple test frameworks:
+
+http://cu.danfis.cz/tutorial
+http://www.lastcraft.com/cgreen.php
+http://throwtheswitch.squarespace.com/white-papers/basic-testing-with-unity.html
