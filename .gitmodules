@@ -1,0 +1,3 @@
+[submodule "c/hydra-web-crawler/hiredis"]
+	path = c/hydra-web-crawler/hiredis
+	url = git://github.com/antirez/hiredis.git
