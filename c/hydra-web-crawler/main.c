@@ -69,7 +69,7 @@ int main (int argc, char *argv[])
       if( curUrl->str != 0 )
 	{
 	  printf("Downloading %s...\n", curUrl->str);
-	  basicstart( curUrl->str );
+	  CrawlUrl( curUrl->str );
 	  redisFreeGetUrl(curUrl);
 	}
       // 5 seconds

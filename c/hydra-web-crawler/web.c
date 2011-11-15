@@ -52,7 +52,7 @@ static size_t WriteMemoryCallback(void *ptr, size_t size, size_t nmemb, void *da
 }
 
 
-int basicstart( char* url )
+int CrawlUrl( char* url )
 {
   CURL *curl_handle;
   /*
