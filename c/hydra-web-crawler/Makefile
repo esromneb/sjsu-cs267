@@ -1,17 +1,19 @@
+CC= g++
+
 hwc: main.o web.o parse.o redis-slave.o
-	g++ -Wall -lcurl hiredis/libhiredis.so web.o main.o parse.o redis-slave.o -o hwc
+	$(CC) -Wall -lcurl hiredis/libhiredis.so web.o main.o parse.o redis-slave.o -o hwc
 
 main.o: main.c
-	g++ main.c -Wall -c
+	$(CC) main.c -Wall -c
 
 web.o: web.c web.h
-	g++ web.c -Wall -c
+	$(CC) web.c -Wall -c
 
 parse.o: parse.c parse.h
-	g++ parse.c -Wall -c
+	$(CC) parse.c -Wall -c
 
 redis-slave.o: redis-slave.c redis-slave.h
-	g++ redis-slave.c -Wall -c
+	$(CC) redis-slave.c -Wall -c
 
 
 # clean and other non compile actions:
