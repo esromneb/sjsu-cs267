@@ -1,7 +1,7 @@
 # I have tested these instructions on ubuntu 10.04 and 10.10
 
 apt-get update
-apt-get install git-core tofrodos g++ libboost-dev libcurl3-dev
+apt-get install git-core tofrodos g++ libboost-dev libcurl3-dev make
 
 git clone --recursive git://github.com/esromneb/sjsu-cs267.git
 # the git command makes a new directory
